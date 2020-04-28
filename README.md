@@ -1,6 +1,9 @@
 1. Create virtualenv
 `virtualenv -p python3.8 google_vision`
 
+Activate it
+`source google_vision/bin/activate`
+
 2. Install requirements
 `pip install -r requirements.txt`
 

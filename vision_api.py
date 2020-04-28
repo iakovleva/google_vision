@@ -1,6 +1,6 @@
 import io
 import json
-from typing import Tuple, Dict, List, Union
+from typing import Tuple, Dict, List, Union, Any
 from google.cloud import vision
 from google.cloud.vision import enums
 from google.protobuf.json_format import MessageToJson
@@ -51,7 +51,7 @@ class ApiVision:
         }
         return safe_search
 
-    def detect_landmarks(self) -> Dict[str, Tuple[str]]:
+    def detect_landmarks(self) -> Dict[str, Tuple[Any, Any]]:
         """
         Detects landmarks in the image
         """
@@ -98,7 +98,7 @@ class ApiVision:
     @staticmethod
     def format_response(
             response: vision.types.BatchAnnotateImagesResponse
-            ) -> Dict[str, str]:
+            ) -> Dict[Any, Any]:
 
         resp = json.loads(MessageToJson(response))["responses"][0]
         formatted_response = {}
